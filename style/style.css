@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Poppins;
+    src: url(../assets/Font/Poppins-Regular.ttf);
+  }
+  body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Poppins;
+  background: #136ad2;
+  background: #fff;
+}  
+  #hayuf {
+    height: 100vh;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.3)
+      ),
+      url(../assets/animal.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0px;
+  }
+  .hayuf-title {
+    font-size: 70px;
+    font-family: Poppins;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(204, 91, 178);
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    top: 1px;
+    font-family: Poppins;
+  }
+  .logo {
+    color: #fff;
+    font-size: 24px;
+  }
+  .logo:hover {
+    color: #267dff;
+    text-decoration: none;
+    cursor: pointer;
+  }
