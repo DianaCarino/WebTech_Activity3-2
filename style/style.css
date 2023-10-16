@@ -1,59 +1,154 @@
 @font-face {
-    font-family: Poppins;
-    src: url(../assets/Font/Poppins-Regular.ttf);
-  }
-  body,
-html {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
+  font-family: Inter;
+  src: url(../assets/font/Inter-Bold.ttf);
 }
 
 body {
-  box-sizing: border-box;
-  font-family: Poppins;
-  background: #136ad2;
-  background: #fff;
-}  
-  #hayuf {
-    height: 100vh;
-    background-image: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.3)
-      ),
-      url(../assets/animal.jpg);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 0px;
-  }
-  .hayuf-title {
-    font-size: 70px;
-    font-family: Poppins;
-    color: #ffffff;
-    text-align: center;
-    padding-bottom: 15px;
-  }
-  a {
-    text-decoration: none;
-    color: rgb(204, 91, 178);
-    transition: color 0.3s ease-in-out;
-    position: relative;
-    top: 1px;
-    font-family: Poppins;
-  }
-  .logo {
-    color: #fff;
-    font-size: 24px;
-  }
-  .logo:hover {
-    color: #267dff;
-    text-decoration: none;
-    cursor: pointer;
-  }
+    margin: 0;
+    line-height: normal;
+}
+  
+:root {
+  --font-family: Inter;
+  --font-size-xl: 20px;
+  --color-white: #fff;
+}
+
+.is-a-web {
+  color: white;
+}
+
+.about, .hayuf, .hayuf-container-content {
+  position: absolute;
+  left: 140px;
+  display: inline-block;
+  font-family: Inter;
+}
+
+.hayuf-container-content {
+  top: 756px;
+  font-size: 16px;
+  width: 612px;
+  height: 79px;
+  mix-blend-mode: normal;
+  color: #e5a7af;
+  font-family: Inter;
+}
+
+.about, .hayuf {
+  top: 721px;
+  width: 79px;
+  height: 29px;
+}
+
+.hayuf {
+  top: 47px;
+  left: 54px;
+  font-size: 40px;
+  font-weight: 800;
+  width: 124px;
+  height: 46px;
+}
+
+.animals {
+  color: #e09aa5;
+}
+
+.find-your-favorite-container {
+  position: absolute;
+  font-family: Inter;
+  top: 280px;
+  left: 142px;
+  font-size: 64px;
+  display: inline-block;
+  width: 552px;
+  height: 153px;
+}
+
+.input-textfield {
+  border: 0;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 454px;
+  left: 142px;
+  border-radius: 8px;
+  width: 481px;
+  height: 58px;
+}
+
+
+
+/* .search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 13px;
+  background-color: #c662a8;
+  transition-duration: 0.4s;
+  width: 178px;
+  height: 54px;
+}
+
+.search:hover {
+  background-color: #f4eaf0;
+} */
+
+
+
+.search {
+  position: absolute;
+  top: 14px;
+  left: 53px;
+  font-size: var(--font-size-xl);
+  display: inline-block;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  width: 72px;
+  height: 29px;
+}
+
+.find-button {
+  cursor: pointer;
+  border-radius: 13px;
+  background-color: #c662a8;
+  position: absolute;
+  transition-duration: 0.4s;
+  top: 549px;
+  left: 142px;
+  width: 178px;
+  height: 54px;
+}
+
+.find-button:hover {
+  background-color: #925151;
+}
+
+#hero {
+  height: 100vh;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url(../assets/heroBG.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  color: #fff;
+  padding: 20px;
+}
+
+.second-section {
+  position: relative;
+  background-color: #0d0a1b;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+}
+  
