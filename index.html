@@ -28,8 +28,98 @@
         <b class="search">Search</b>
       </button>
     </section>
-    <section id="second-section" class="second-section">
-      
-    </section>
+        <div class="results-div">
+          <div class = "results">Here are your results</div>
+          <div class="cards-div" data-cards-container>
+          <!-- <div class = "card">
+            <div class = "common-name">Siberian Tiger</div>
+            <div class = "animal-pic">Picture</div>
+
+            <div class="info">
+              <div class="first-column">
+                <div class="label-info">PHYLUM</div>
+                <div class = "phylum">Chordata</div>
+
+                <div class="label-info">CLASS</div>
+                <div class = "class">Mammalia</div>
+
+                <div class="label-info">ORDER</div>
+                <div class = "order">Carnivora</div>
+
+                <div class="label-info">FAMILY</div>
+                <div class = "family">Felidae</div>
+
+                <div class="label-info">GENUS</div>
+                <div class = "genus">Panthera</div>
+
+                <div class="label-info">SCIENTIFIC NAME</div>
+                <div class = "scientific-name">Panthera Tigris Altaica</div>
+            </div>
+              <div class="second-column">
+                <div class="label-info">TYPE</div>
+                <div class="type">Mammal</div>
+
+                <div class="label-info">HABITAT</div>
+                <div class = "habitat">Dense Tropical Forest</div>
+
+                <div class="label-info">DIET</div>
+                <div class="diet">Carnivore</div>
+
+                <div class="label-info">LIFESPAN</div>
+                <div class="lifespan">18-25 years</div>
+
+                <div class="label-info">LOCATIONS</div>
+                <div class="locations">Asia, Eurasia</div>
+              </div>
+            </div>
+            <div class="animal-video">video</div>
+          </div> -->
+        </div>
+        </div>
+      <template animal-template>
+        <div class = "card">
+          <div class = "common-name"></div>
+          <div class = "animal-pic">Picture</div>
+
+          <div class="info">
+            <div class="first-column">
+              <div class="label-info">PHYLUM</div>
+              <div class = "phylum" data-phylum></div>
+
+              <div class="label-info">CLASS</div>
+              <div class = "class" data-class></div>
+
+              <div class="label-info">ORDER</div>
+              <div class = "order" data-order></div>
+
+              <div class="label-info">FAMILY</div>
+              <div class = "family" data-family></div>
+
+              <div class="label-info">GENUS</div>
+              <div class = "genus" data-genus></div>
+
+              <div class="label-info">SCIENTIFIC NAME</div>
+              <div class = "scientific-name" data-scientific-name></div>
+          </div>
+            <div class="second-column">
+              <div class="label-info">TYPE</div>
+              <div class="type" data-type></div>
+
+              <div class="label-info">HABITAT</div>
+              <div class = "habitat" data-habitat></div>
+
+              <div class="label-info">DIET</div>
+              <div class="diet" data-diet></div>
+
+              <div class="label-info">LIFESPAN</div>
+              <div class="lifespan" data-lifespan></div>
+
+              <div class="label-info">LOCATIONS</div>
+              <div class="locations" data-locations></div>
+            </div>
+          </div>
+          <div class="animal-video">video</div>
+        </div>
+      </template>
   </body>
 </html>
