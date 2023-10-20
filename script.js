@@ -1,14 +1,16 @@
-const userInputValue = document.getElementById('animal-input').value;
-
 const animalsAPIURL = 'https://api.api-ninjas.com/v1/animals?name=';
 const animalsAPIKey = 'NCgsX/tZu9GD2YfAZGpM2A==6dfQiZXcvqGd8HcI';
 
 const youtubeAPIKey = 'AIzaSyAlVamTr8Dxu5yes6i8dHiCVBJjmpZJvAo';
-const youtubeAPIURL = 'https://www.googleapis.com/youtube/v3/search?key=${youtubeAPIKey}&q=${userInputValue}&part=snippet&type=video&maxResults=1';
+const youtubeAPIURL = 'https://www.googleapis.com/youtube/v3/search?key=${';
 
 document.getElementById('find-button').addEventListener('click', function(){
+
+    const userInputValue = document.getElementById('animal-input').value;
     const section = document.getElementById('results-section');
     section.innerHTML='';
+
+    var youtubeRequest = youtubeAPIURL + youtubeAPIKey + '}&q=${' + userInputValue + '}&part=snippet&type=video&maxResults=1';
 
     const resultsLabel = document.createElement('div');
     resultsLabel.className = 'your-results-label';
