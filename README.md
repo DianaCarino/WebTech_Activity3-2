@@ -29,8 +29,8 @@ wildlife enthusiast, explore the animal kingdom effortlessly.
         regarding an animal.
       - *Source:* https://www.api-ninjas.com/api/animals
 
-    - **SerpAPI**
-      - *Usage:* This API was provided by Google itself. It was used to provide a particular
+    - **Unsplash API**
+      - *Usage:* This API was provided by Unsplash itself. It was used to provide a particular
         image of a user's searched animal.
       - *Source:* https://serpapi.com/images-results
 
