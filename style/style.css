@@ -160,13 +160,11 @@ body {
   margin: 20px;
   padding: 20px;
   border-radius: 16px;
-  t
 }
 
 .image {
   width: 300px;
   height: 195px;
-  background: url('path/to/your-image.jpg') center/cover no-repeat;
   border: 1px solid #ffff;
   border-radius: 14px;
   margin-left: 1px;
