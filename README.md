@@ -18,7 +18,7 @@ wildlife enthusiast, explore the animal kingdom effortlessly.
   - CSS3
   - JavaScript
 
-   **APIs Used:**
+  - ***APIs Used:***
         - **YouTube Data API**
         - *Usage:* The Youtube Data V3 API was collected from the Google for Developers website.
         It was used for embedding a YouTube videos for every animal that was shown.
