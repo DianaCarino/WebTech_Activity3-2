@@ -13,8 +13,6 @@ wildlife enthusiast, explore the animal kingdom effortlessly.
 
 ## Technologies Used
 
-## Technologies Used
-
 - **Frontend:**
   - HTML5
   - CSS3
