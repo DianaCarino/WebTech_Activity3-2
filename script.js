@@ -13,6 +13,11 @@ document.getElementById('find-button').addEventListener('click', function(){
     var youtubeRequest = youtubeAPIURL + youtubeAPIKey + '}&q=${' + userInputValue + '}&part=snippet&type=video&maxResults=1';
 
     const resultsLabel = document.createElement('div');
+
+    // const btn = document.querySelector('.video-button');
+    // const videoContainer = document.querySelector('.video-container');
+    // const close = document.querySelector('.close');
+
     resultsLabel.className = 'your-results-label';
     resultsLabel.textContent = 'Results for '
     const spanResults = document.createElement('span');
@@ -24,6 +29,27 @@ document.getElementById('find-button').addEventListener('click', function(){
     var animalContainer = document.createElement('div');
     animalContainer.className = 'animal-cards-container';
     section.appendChild(animalContainer);
+
+    function showVideoPopUp(videoId) {
+        const popUp = document.createElement('div');
+        popUp.className = 'video-popup';
+
+        const videoFrame = document.createElement('iframe');
+        videoFrame.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
+        videoFrame.setAttribute('allowfullscreen', '');
+        videoFrame.className = 'video-frame';
+
+        const closeButton = document.createElement('span');
+        closeButton.className = 'close';
+        closeButton.textContent = 'X';
+        closeButton.addEventListener('click', function() {
+            popUp.style.display = 'none';
+        });
+
+        popUp.appendChild(videoFrame);
+        popUp.appendChild(closeButton);
+        document.body.appendChild(popUp);
+    }
 
     fetch(animalsAPIURL + userInputValue, {
         method: 'GET',
@@ -168,6 +194,9 @@ document.getElementById('find-button').addEventListener('click', function(){
                 valueLifespan.className = 'value';
                 valueLifespan.textContent = animal.characteristics.lifespan;
 
+                var videoContainer = document.createElement('div');
+                videoContainer.className = 'video-container';
+
                 var videoButton = document.createElement('button');
                 videoButton.className = 'video-button';
 
@@ -219,12 +248,22 @@ document.getElementById('find-button').addEventListener('click', function(){
                 mainDetails.appendChild(detailsOne);
                 mainDetails.appendChild(detailsTwo);
                 videoButton.appendChild(videoLabel);
+                videoButton.appendChild(videoContainer);
                 card.appendChild(videoButton);
                 animalContainer.appendChild(card);
             });
             section.scrollIntoView({ 
                 behavior: 'smooth' 
             });
+            // Add event listener to the video button
+             document.querySelectorAll('.video-button').forEach(function(button, index) {
+                button.addEventListener('click', function() {
+                const videoId = 'video_id'; // Replace 'video_id' with the actual video ID from the API response
+                showVideoPopUp(videoId);
+            });
+            });
+            
+            
         } else {
             animalContainer.innerHTML = "<div class='card'><div class='animal-name'>Animal not found!</div></div>";
         }
@@ -234,3 +273,21 @@ document.getElementById('find-button').addEventListener('click', function(){
         console.error('Error: ', error.message);
     });
 });
+
+
+btn.addEventListener('click',()=>{
+    videoContainer.classList.add('show');
+});
+
+close.addEventListener('click',()=>{
+    videoContainer.classList.remove('show');
+});
+
+// videoButton.addEventListener('click', () => {
+//     const videoContainer = videoButton.parentElement.querySelector('.video-container');
+//     videoContainer.classList.add('show');
+// });
+// close.addEventListener('click', () => {
+//     const videoContainer = close.parentElement;
+//     videoContainer.classList.remove('show');
+// });
