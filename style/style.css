@@ -3,6 +3,14 @@
   src: url(../assets/font/Inter-Bold.ttf);
 }
 
+h1 {
+    margin: 0px;
+    padding-top: 30px;
+    padding-left: 65px;
+    font-family: 'Inter';
+    font-size: 45px;
+}
+
 body {
     margin: 0;
     padding: 0;
