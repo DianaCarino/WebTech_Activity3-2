@@ -24,7 +24,7 @@ body {
 }
 
 .main-hero-container {
-  height: 100vh;
+  padding-top: 150px;
   max-width: 850px;
   display: flex;
   flex-direction: column;
@@ -95,6 +95,7 @@ body {
   width: 178px;
   height: 54px;
   margin-bottom: 25px;
+  border: none;
 }
 
 .find-button:hover {
@@ -138,8 +139,6 @@ body {
 .results-span {
   color: #e09aa5;
 }
-
-
 
 
 
@@ -223,6 +222,7 @@ div .value{
   background-color: #c662a8;
   transition-duration: 0.4s;
   height: 30px;
+  border: none;
 }
 
 .video-button:hover {
@@ -298,9 +298,4 @@ div .value{
   color: #fff;
   font-size: 20px;
   cursor: pointer;
-<<<<<<< HEAD
-  z-index: 1002;
 }
-=======
-}
->>>>>>> d97afe5c68f0bf9d8be1a99a0d2b1a4a6106621d
