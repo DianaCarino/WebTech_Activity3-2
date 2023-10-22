@@ -311,3 +311,22 @@ close.addEventListener('click',()=>{
 //     const videoContainer = close.parentElement;
 //     videoContainer.classList.remove('show');
 // });
+
+
+
+const url = 'https://ytmedia.p.rapidapi.com/@api/json/audiostreams/kcCXl12FcRc';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '489c86492cmsha0848e70c28bbf2p1c600ejsn9ad13b010409',
+		'X-RapidAPI-Host': 'ytmedia.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
