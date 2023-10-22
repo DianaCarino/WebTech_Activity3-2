@@ -4,7 +4,7 @@ const animalsAPIKey = 'NCgsX/tZu9GD2YfAZGpM2A==6dfQiZXcvqGd8HcI';
 const youtubeAPIKey = 'AIzaSyAlVamTr8Dxu5yes6i8dHiCVBJjmpZJvAo';
 const youtubeAPIURL = 'https://www.googleapis.com/youtube/v3/search?key=${';
 
-document.getElementById('find-button').addEventListener('click', function(){
+document.getElementById('find-button').addEventListener('click', () => {
 
     const userInputValue = document.getElementById('animal-input').value;
     const section = document.getElementById('results-section');
@@ -203,6 +203,23 @@ document.getElementById('find-button').addEventListener('click', function(){
                 var videoLabel = document.createElement('b');
                 videoLabel.className = 'video-label';
                 videoLabel.textContent = 'Video';
+
+                var apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(animal.name)}`;
+
+                // getting yung mga imagess
+                fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(res => {
+                        var animalImage = document.createElement('img');
+                        var imageURL = res.thumbnail ? res.thumbnail.source : null;
+                        animalImage.src = imageURL;
+                        animalImage.alt = animalName;
+                        image.appendChild(animalImage);
+                    })
+                .catch(error => {
+                    console.error('Error fetching image: ', error);
+                    image.innerHTML = "<p>Error loading image</p>";
+                });
 
                 // details-1
                 detailsOne.appendChild(labelPhylum);
