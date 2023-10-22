@@ -61,6 +61,9 @@ document.getElementById('find-button').addEventListener('click', () => {
     .then(response => response.json())
     .then(result => {
         if (result.length != 0) {
+            if (result.length < 6) {
+                section.setAttribute('id', 'results-section-v2');
+            } 
             result.forEach(function(animal) {
                 var card = document.createElement('div');
                 card.className = 'card';

@@ -117,13 +117,25 @@ body {
   color: #fff;
 }
 
-.results-section {
+/* if results are more then 5 */
+#results-section {
   background-color: #0d0a1b;
   overflow: hidden;
   color: white;
   font-family: Inter;
   justify-content: center;
 }
+
+/* if results are less then 5 */
+#results-section-v2 {
+  height: 100vh;
+  background-color: #0d0a1b;
+  overflow: hidden;
+  color: white;
+  font-family: Inter;
+  justify-content: center;
+}
+
 
 .your-results-label {
   display: flex;
@@ -133,7 +145,7 @@ body {
   margin-top: 10px;
   font-size: 50px;
   margin-top: 100px;
-  
+
 }
 
 .results-span {
