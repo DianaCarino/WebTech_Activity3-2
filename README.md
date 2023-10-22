@@ -37,4 +37,8 @@ wildlife enthusiast, explore the animal kingdom effortlessly.
 
 - **Backend:**
   - None
+ 
+
+
+## How to run the web application
 
