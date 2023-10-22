@@ -7,9 +7,9 @@ wildlife enthusiast, explore the animal kingdom effortlessly.
 
 ## Hayuf's Features
 
-- **Find Specific Animal:** View a diverse range of different animals.
-- **Filter Searched:** Filter search to locate a specific species.
-- **Watch Videos:** Watch a youtube video for your searched animal.
+- **Find Specific Animal:** View a diverse range of animals.
+- **Filter Animals:** Filter search to locate a specific species.
+- **Watch Videos:** Watch a youtube video of your searched animal/s.
 
 ## Technologies Used
 
