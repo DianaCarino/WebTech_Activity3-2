@@ -1,16 +1,28 @@
 const animalsAPIURL = 'https://api.api-ninjas.com/v1/animals?name=';
 const animalsAPIKey = 'NCgsX/tZu9GD2YfAZGpM2A==6dfQiZXcvqGd8HcI';
 
-const youtubeAPIKey = 'AIzaSyAlVamTr8Dxu5yes6i8dHiCVBJjmpZJvAo';
-const youtubeAPIURL = 'https://www.googleapis.com/youtube/v3/search?key=${';
+const youtubeAPIKey = 'AIzaSyAdawYbu7IXXWoPuwp3ri28HzJ2I4su4JI';
+const youtubeAPIURL = 'https://www.googleapis.com/youtube/v3/search';
+
+const videoPress = document.getElementById("video-press");
+const videoShow = document.getElementById("video-show");
 
 document.getElementById('find-button').addEventListener('click', () => {
 
     const userInputValue = document.getElementById('animal-input').value;
     const section = document.getElementById('results-section');
+
+
     section.innerHTML='';
 
-    var youtubeRequest = youtubeAPIURL + youtubeAPIKey + '}&q=${' + userInputValue + '}&part=snippet&type=video&maxResults=1';
+
+
+  
+    function getYouTubeSearchURL(animalString) {
+        const addSearch  = `${animalString} animal wildlife`;
+        return `${youtubeAPIURL}?key=${youtubeAPIKey}&q=${encodeURIComponent(addSearch)}&part=snippet&type=video&maxResults=1`;
+    }
+    
 
     const resultsLabel = document.createElement('div');
 
@@ -30,26 +42,28 @@ document.getElementById('find-button').addEventListener('click', () => {
     animalContainer.className = 'animal-cards-container';
     section.appendChild(animalContainer);
 
-    function showVideoPopUp(videoId) {
+    function showVideoPopUp(videoId, targetCard) {
         const popUp = document.createElement('div');
         popUp.className = 'video-popup';
-
+    
         const videoFrame = document.createElement('iframe');
         videoFrame.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
         videoFrame.setAttribute('allowfullscreen', '');
         videoFrame.className = 'video-frame';
-
+    
         const closeButton = document.createElement('span');
         closeButton.className = 'close';
         closeButton.textContent = 'X';
         closeButton.addEventListener('click', function() {
             popUp.style.display = 'none';
         });
-
+    
         popUp.appendChild(videoFrame);
         popUp.appendChild(closeButton);
-        document.body.appendChild(popUp);
+    
+        targetCard.appendChild(popUp);
     }
+    
 
     fetch(animalsAPIURL + userInputValue, {
         method: 'GET',
@@ -64,7 +78,12 @@ document.getElementById('find-button').addEventListener('click', () => {
             if (result.length < 6) {
                 section.setAttribute('id', 'results-section-v2');
             } 
-            result.forEach(function(animal) {
+
+           result.forEach(function(animal) {
+
+
+                console.log(animal.name);
+
                 var card = document.createElement('div');
                 card.className = 'card';
 
@@ -77,6 +96,9 @@ document.getElementById('find-button').addEventListener('click', () => {
                 var animalName = document.createElement('div');
                 animalName.className = 'animal-name';
                 animalName.textContent = animal.name;
+
+                var animalString = animalName.textContent;
+
 
                 var mainDetails = document.createElement('div');
                 mainDetails.className = 'main-details';
@@ -198,14 +220,53 @@ document.getElementById('find-button').addEventListener('click', () => {
                 valueLifespan.textContent = animal.characteristics.lifespan;
 
                 var videoContainer = document.createElement('div');
+             
                 videoContainer.className = 'video-container';
+             
 
                 var videoButton = document.createElement('button');
+             
                 videoButton.className = 'video-button';
 
                 var videoLabel = document.createElement('b');
                 videoLabel.className = 'video-label';
                 videoLabel.textContent = 'Video';
+
+
+                videoButton.appendChild(videoLabel);
+                videoButton.appendChild(videoContainer);
+                card.appendChild(videoContainer);
+                card.appendChild(videoButton);
+                animalContainer.appendChild(card);
+
+
+
+                const videoPressButtons = document.querySelectorAll('.video-button'); //kunin mga meron na class video-button na nakadisplay pagkasearch
+                videoPressButtons.forEach(function(button) {
+                const hasEventListener = button.classList.contains('event-listener-added'); //eto putangina life saver sa stack overflow anti duplicate ng trigger
+                if (!hasEventListener) {
+                button.addEventListener('click', function() {
+                const videoContainer = this.querySelector('.video-container');
+                videoContainer.classList.toggle('show');
+        });
+
+                button.addEventListener('click', function() {
+                const animalName = this.parentElement.querySelector('.animal-name').textContent;
+                const youtubeUrl = getYouTubeSearchURL(animalName);
+
+                fetch(youtubeUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const videoId = data.items[0].id.videoId;
+                    const targetCard = this.parentElement;
+                    showVideoPopUp(videoId, targetCard);
+                });
+        });
+
+        button.classList.add('event-listener-added');
+    }
+});
+
 
                 var apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(animal.name)}`;
 
@@ -276,12 +337,7 @@ document.getElementById('find-button').addEventListener('click', () => {
                 behavior: 'smooth' 
             });
             // Add event listener to the video button
-             document.querySelectorAll('.video-button').forEach(function(button, index) {
-                button.addEventListener('click', function() {
-                const videoId = 'video_id'; // Replace 'video_id' with the actual video ID from the API response
-                showVideoPopUp(videoId);
-            });
-            });
+            
             
             
         } else {
@@ -324,8 +380,8 @@ const options = {
 };
 
 try {
-	const response = await fetch(url, options);
-	const result = await response.text();
+	const response =  fetch(url, options);
+	const result =  response.text();
 	console.log(result);
 } catch (error) {
 	console.error(error);
