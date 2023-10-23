@@ -124,7 +124,7 @@ document.getElementById('find-button').addEventListener('click', () => {
                 // group
                 var labelGroup = document.createElement('div');
                 labelGroup.className = 'label';
-                labelGroup.textContent = 'Group: ';
+                labelGroup.textContent = 'Type: ';
 
                 var valueGroup = document.createElement('span');
                 valueGroup.className = 'value';

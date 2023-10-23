@@ -3,6 +3,11 @@
   src: url(../assets/font/Inter-Bold.ttf);
 }
 
+@font-face {
+  font-family: Inter-Regular;
+  src: url(../assets/font/Inter-Regular.ttf);
+}
+
 h1 {
     margin: 0px;
     padding-top: 30px;
@@ -221,10 +226,11 @@ img {
   margin-bottom: 1px;
 }
 
-div .value{
+.value{
   margin-bottom: 10px;
-  font-style: italic;
+  font-family: Inter-Regular;
   font-weight: 100;
+  font-style: italic;
 }
 
 .video-button {
