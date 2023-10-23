@@ -19,7 +19,7 @@ document.getElementById('find-button').addEventListener('click', () => {
 
   
     function getYouTubeSearchURL(animalString) {
-        const addSearch  = `${animalString} animal wildlife`;
+        const addSearch  = `${animalString} profile`;
         return `${youtubeAPIURL}?key=${youtubeAPIKey}&q=${encodeURIComponent(addSearch)}&part=snippet&type=video&maxResults=1`;
     }
     
