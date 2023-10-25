@@ -40,5 +40,14 @@ wildlife enthusiast, explore the animal kingdom effortlessly.
  
 
 
-## How to run the web application
-
+## How to run the web application through Live server plugin in Visual Studio Code
+1. Go to the Extensions Tab in Visual Studio Code.
+2. In the Search Bar type Live Server.
+3. Install the Live Server created by Ritwick Dey.
+4. Once you have installed the Live Server Plugin, locate your index.html and click the "index.html."
+5. On the lower right of your Visual Studio Code you will see a button named "Go Live."
+6. Press the "Go Live" button.
+7. A browser will pop up displaying your website.
+8. Now, you can finally use the Web Application.
+   
+   
