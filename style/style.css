@@ -9,19 +9,19 @@
 }
 
 h1 {
-    margin: 0px;
-    padding-top: 30px;
-    padding-left: 65px;
-    font-family: 'Inter';
-    font-size: 45px;
+  margin: 0px;
+  padding-top: 30px;
+  padding-left: 65px;
+  font-family: "Inter";
+  font-size: 45px;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  
+
 :root {
   --font-family: Inter;
   --font-size-xl: 20px;
@@ -141,7 +141,6 @@ body {
   justify-content: center;
 }
 
-
 .your-results-label {
   display: flex;
   justify-content: center;
@@ -150,14 +149,11 @@ body {
   margin-top: 10px;
   font-size: 50px;
   margin-top: 100px;
-
 }
 
 .results-span {
   color: #e09aa5;
 }
-
-
 
 /* new */
 .animal-cards-container {
@@ -226,7 +222,7 @@ img {
   margin-bottom: 1px;
 }
 
-.value{
+.value {
   margin-bottom: 10px;
   font-family: Inter-Regular;
   font-weight: 100;
@@ -296,7 +292,12 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for desired transparency */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust the alpha value for desired transparency */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -316,4 +317,45 @@ img {
   color: #fff;
   font-size: 40px;
   cursor: pointer;
+}
+
+/* filter section */
+#diet-select {
+  width: 150px;
+  height: 30px;
+  margin-left: 608px;
+  margin-right: 50px;
+  margin-top: 100px;
+}
+
+#habitat-select {
+  width: 150px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+#group-select {
+  width: 150px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+#location-select {
+  width: 150px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+#filter-button {
+  margin-right: 10px;
+  font-size: 20px;
+  width: 132px;
+  height: 75px;
+}
+
+#sort-button {
+  margin-right: 10px;
+  font-size: 20px;
+  width: 132px;
+  height: 75px;
 }
