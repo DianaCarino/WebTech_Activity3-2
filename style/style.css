@@ -247,7 +247,7 @@ img {
   color: white;
 }
 
-/* .video-container{
+.video-container{
   position: fixed;
   top: 0;
   left: 0;
@@ -283,7 +283,7 @@ img {
 .video-container .show{
   pointer-events: all;
   opacity: 1;
-} */
+}
 
 /* Styles for the video pop-up */
 .video-popup {
