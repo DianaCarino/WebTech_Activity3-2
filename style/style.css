@@ -319,3 +319,43 @@ img {
   cursor: pointer;
 }
 
+/* filter section */
+#diet-select {
+  width: 150px;
+  height: 30px;
+  margin-left: 608px;
+  margin-right: 50px;
+  margin-top: 100px;
+}
+
+#habitat-select {
+  width: 150px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+#group-select {
+  width: 150px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+#location-select {
+  width: 150px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+#filter-button {
+  margin-right: 10px;
+  font-size: 20px;
+  width: 132px;
+  height: 75px;
+}
+
+#sort-button {
+  margin-right: 10px;
+  font-size: 20px;
+  width: 132px;
+  height: 75px;
+}
