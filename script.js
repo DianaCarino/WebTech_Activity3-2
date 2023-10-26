@@ -12,8 +12,8 @@ const section = document.getElementById("results-section");
 
 
 function getYouTubeSearchURL(animalString) {
-    const addSearch  = `${animalString} animal wildlife`;
-    return `${youtubeAPIURL}?key=${youtubeAPIKey}&q=${encodeURIComponent(addSearch)}&part=snippet&type=video&maxResults=1`;
+    const natGeoChannelId = "UCDPk9MG2RexnOMGTD-YnSnA"; 
+    return `${youtubeAPIURL}?key=${youtubeAPIKey}&channelId=${natGeoChannelId}&q=${encodeURIComponent(animalString)}&part=snippet&type=video&maxResults=1`;
 }
 
 
@@ -43,6 +43,7 @@ function showVideoPopUp(videoId, targetCard) {
     closeButton.textContent = 'X';
     closeButton.addEventListener('click', function() {
         popUp.style.display = 'none';
+        videoFrame.setAttribute('src', '');
     });
 
     popUp.appendChild(videoFrame);
