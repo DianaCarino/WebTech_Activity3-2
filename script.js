@@ -1,4 +1,4 @@
-// refactored version (no vid implementation)
+// refactored version (with vid)
 const animalsAPIURL = "https://api.api-ninjas.com/v1/animals?name=";
 const animalsAPIKey = "NCgsX/tZu9GD2YfAZGpM2A==6dfQiZXcvqGd8HcI";
 
@@ -7,7 +7,49 @@ const youtubeAPIURL = "https://www.googleapis.com/youtube/v3/search";
 
 const videoPress = document.getElementById("video-press");
 const videoShow = document.getElementById("video-show");
+
 const section = document.getElementById("results-section");
+
+
+function getYouTubeSearchURL(animalString) {
+    const addSearch  = `${animalString} animal wildlife`;
+    return `${youtubeAPIURL}?key=${youtubeAPIKey}&q=${encodeURIComponent(addSearch)}&part=snippet&type=video&maxResults=1`;
+}
+
+
+function fetchVideo(animalName) {
+    const youtubeUrl = getYouTubeSearchURL(animalName);
+
+    return fetch(youtubeUrl)
+        .then(response => response.json())
+        .then(data => data.items[0].id.videoId)
+        .catch(error => {
+            console.error("Error fetching YouTube video: ", error);
+        });
+}
+
+
+function showVideoPopUp(videoId, targetCard) {
+    const popUp = document.createElement('div');
+    popUp.className = 'video-popup';
+
+    const videoFrame = document.createElement('iframe');
+    videoFrame.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
+    videoFrame.setAttribute('allowfullscreen', '');
+    videoFrame.className = 'video-frame';
+
+    const closeButton = document.createElement('span');
+    closeButton.className = 'close';
+    closeButton.textContent = 'X';
+    closeButton.addEventListener('click', function() {
+        popUp.style.display = 'none';
+    });
+
+    popUp.appendChild(videoFrame);
+    popUp.appendChild(closeButton);
+
+    targetCard.appendChild(popUp);
+}
 
 function fetchAnimal(userInputValue) {
     return fetch(animalsAPIURL + userInputValue, {
@@ -45,9 +87,33 @@ function fetchImage(animal, image) {
         });
 }
 
-// Fetch the video
-// Lagyan niyo nalang ung implementation non HAHAHA
-function fetchVideo(animalName) { }
+function videoAnimals() {
+    const videoPressButtons = document.querySelectorAll('.video-button'); //kunin mga meron na class video-button na nakadisplay pagkasearch
+    videoPressButtons.forEach(function(button) {
+        const hasEventListener = button.classList.contains('event-listener-added'); //eto putangina life saver sa stack overflow anti duplicate ng trigger
+        if (!hasEventListener) {
+            button.addEventListener('click', function() {
+                const videoContainer = this.querySelector('.video-container');
+                videoContainer.classList.toggle('show');
+            });
+
+            button.addEventListener('click', function() {
+                const animalName = this.parentElement.querySelector('.animal-name').textContent;
+                const youtubeUrl = getYouTubeSearchURL(animalName);
+
+                fetch(youtubeUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const videoId = data.items[0].id.videoId;
+                        const targetCard = this.parentElement;
+                        showVideoPopUp(videoId, targetCard);
+                    });
+            });
+
+            button.classList.add('event-listener-added');
+        }
+    });
+}
 
 // Create the Animal card
 function createCard(animal, image, animalContainer) {
@@ -230,6 +296,15 @@ function createCard(animal, image, animalContainer) {
     card.appendChild(videoContainer);
     card.appendChild(videoButton);
     animalContainer.appendChild(card);
+
+
+
+
+videoAnimals();
+
+
+
+
 }
 
 // eto ung function ng search

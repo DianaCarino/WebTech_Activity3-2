@@ -304,6 +304,9 @@ img {
   z-index: 1000;
 }
 
+
+
+
 .video-frame {
   width: 1500px;
   height: 800px;
@@ -311,9 +314,9 @@ img {
 }
 
 .close {
-  position: absolute;
-  top: 65px;
-  right: 130px;
+  position: relative;
+  bottom: 400px !important;
+  right: -50px;
   color: #fff;
   font-size: 40px;
   cursor: pointer;
@@ -321,7 +324,7 @@ img {
 
 /* filter section */
 #diet-select {
-  width: 150px;
+  width: 1540px !important;
   height: 30px;
   margin-left: 608px;
   margin-right: 50px;
