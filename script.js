@@ -12,7 +12,7 @@ const section = document.getElementById("results-section");
 
 
 function getYouTubeSearchURL(animalString) {
-    const natGeoChannelId = "UCDPk9MG2RexnOMGTD-YnSnA"; 
+    const natGeoChannelId = "UCDPk9MG2RexnOMGTD-YnSnA";
     return `${youtubeAPIURL}?key=${youtubeAPIKey}&channelId=${natGeoChannelId}&q=${encodeURIComponent(animalString)}&part=snippet&type=video&maxResults=1`;
 }
 
@@ -29,6 +29,7 @@ function fetchVideo(animalName) {
 }
 
 
+
 function showVideoPopUp(videoId, targetCard) {
     const popUp = document.createElement('div');
     popUp.className = 'video-popup';
@@ -41,7 +42,7 @@ function showVideoPopUp(videoId, targetCard) {
     const closeButton = document.createElement('span');
     closeButton.className = 'close';
     closeButton.textContent = 'X';
-    closeButton.addEventListener('click', function() {
+    closeButton.addEventListener('click', function () {
         popUp.style.display = 'none';
         videoFrame.setAttribute('src', '');
     });
@@ -90,15 +91,15 @@ function fetchImage(animal, image) {
 
 function videoAnimals() {
     const videoPressButtons = document.querySelectorAll('.video-button'); //kunin mga meron na class video-button na nakadisplay pagkasearch
-    videoPressButtons.forEach(function(button) {
+    videoPressButtons.forEach(function (button) {
         const hasEventListener = button.classList.contains('event-listener-added'); //eto putangina life saver sa stack overflow anti duplicate ng trigger
         if (!hasEventListener) {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const videoContainer = this.querySelector('.video-container');
                 videoContainer.classList.toggle('show');
             });
 
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const animalName = this.parentElement.querySelector('.animal-name').textContent;
                 const youtubeUrl = getYouTubeSearchURL(animalName);
 
@@ -297,15 +298,10 @@ function createCard(animal, image, animalContainer) {
     card.appendChild(videoContainer);
     card.appendChild(videoButton);
     animalContainer.appendChild(card);
-
-
-
-
-videoAnimals();
-
-
-
-
+    videoAnimals();
+    section.scrollIntoView({
+        behavior: 'smooth'
+    });
 }
 
 // eto ung function ng search
@@ -936,9 +932,7 @@ function sortResults() {
 //                 card.appendChild(videoButton);
 //                 animalContainer.appendChild(card);
 //             });
-//             section.scrollIntoView({
-//                 behavior: 'smooth'
-//             });
+//
 //             // Add event listener to the video button
 
 //         } else {

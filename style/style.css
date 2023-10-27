@@ -110,11 +110,9 @@ body {
 #hero {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(
-      to top,
+  background-image: linear-gradient(to top,
       rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.3)
-    ),
+      rgba(0, 0, 0, 0.3)),
     url(../assets/heroBG.jpg);
   background-size: cover;
   background-position: center;
@@ -247,7 +245,7 @@ img {
   color: white;
 }
 
-.video-container{
+.video-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -263,7 +261,7 @@ img {
   transition: all 0.3;
 }
 
-.video-container .close{
+.video-container .close {
   position: absolute;
   top: 10%;
   right: 25px;
@@ -271,7 +269,7 @@ img {
   cursor: pointer;
 }
 
-.video-container video{
+.video-container video {
   width: 90%;
   max-width: 800px;
   transform: scale(0);
@@ -280,7 +278,7 @@ img {
   transition: all 0.3s;
 }
 
-.video-container .show{
+.video-container .show {
   pointer-events: all;
   opacity: 1;
 }
@@ -292,12 +290,11 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Adjust the alpha value for desired transparency */
+  background: rgba(0,
+      0,
+      0,
+      0.5);
+  /* Adjust the alpha value for desired transparency */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,41 +321,75 @@ img {
 
 /* filter section */
 #diet-select {
-  width: 1540px !important;
-  height: 30px;
-  margin-left: 608px;
-  margin-right: 50px;
+  width: 130px;
+  height: 35px;
+  margin-left: 615px;
+  margin-right: 35px;
   margin-top: 100px;
+  font-family: 'Inter-Regular';
+  text-align: center;
 }
 
 #habitat-select {
-  width: 150px;
-  height: 30px;
-  margin-right: 50px;
+  width: 200px;
+  height: 35px;
+  margin-right: 30px;
+  font-family: 'Inter-Regular';
+  text-align: center;
 }
 
 #group-select {
-  width: 150px;
-  height: 30px;
-  margin-right: 50px;
-}
-
-#location-select {
-  width: 150px;
-  height: 30px;
-  margin-right: 50px;
+  width: 130px;
+  height: 35px;
+  margin-right: 30px;
+  font-family: 'Inter-Regular';
+  text-align: center;
 }
 
 #filter-button {
-  margin-right: 10px;
-  font-size: 20px;
-  width: 132px;
-  height: 75px;
+  margin-right: 30px;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 8px;
+  background-color: #c662a8;
+  transition-duration: 0.4s;
+  height: 30px;
+  border: none;
+  color: #fff;
+}
+
+#filter-button:hover {
+  background-color: #925151;
 }
 
 #sort-button {
   margin-right: 10px;
-  font-size: 20px;
-  width: 132px;
-  height: 75px;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 8px;
+  background-color: #c662a8;
+  transition-duration: 0.4s;
+  height: 30px;
+  border: none;
+  color: #fff;
+}
+
+#sort-button:hover {
+  background-color: #925151;
+}
+
+.animate {
+  animation: popUpAnimation 0.5s ease;
+}
+
+@keyframes popUpAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
