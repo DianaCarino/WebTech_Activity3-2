@@ -78,9 +78,16 @@ function fetchAnimal(userInputValue) {
 }
 
 /*
-Created by: 
-Description: 
+Created by: Diana Mae D. Cariño
+Description:
+This is the fetch image function of the website.
+The "apiUrl" would be used to make an API request from the Media Wiki API
+to fetch an image of the animal based on the user's input from Wikipedia.
+The image would be displayed from the HTML container "image."
+If the image of an animal is available from Wikipedia, the image will be displayed.
+However, if there is no available animal image, a default image will be displayed.
 */
+
 // Fetch the image
 function fetchImage(animal, image) {
   var apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
