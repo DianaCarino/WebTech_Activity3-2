@@ -258,7 +258,7 @@ img {
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3;
+  transition: opacity 0.3s;
 }
 
 .video-container .close {
