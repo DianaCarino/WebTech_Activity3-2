@@ -38,9 +38,9 @@ function fetchVideo(animalName) {
 
 /*
 Created by: Hans Rafael P. Daligdig
-Description: The showVideoPopUp function generates a video pop-up within a designated target card on a webpage. 
-This function takes in two parameters: videoId, representing the unique identifier of the YouTube video, and 
-targetCard, which denotes the container where the pop-up will be appended.
+Description: The showVideoPopUp function creates a YouTube video pop-up within a specified target container on a webpage. 
+It dynamically generates a pop-up window that includes the YouTube video specified by the provided videoId. 
+The function also creates a close button within the pop-up window, enabling users to close the pop-up when clicked.
 */
 function showVideoPopUp(videoId, targetCard) {
     const popUp = document.createElement("div");
