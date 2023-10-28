@@ -66,7 +66,7 @@ function showVideoPopUp(videoId, targetCard) {
 }
 
 /*
-Created by: 
+Created by: Adrienne Marie Zapanta
 Description: This function will take in an argument (the input of the user) which will be used along
 with the animal API url variable to fetch the data from the API.
 Utilizing the get method and setting the headers of the API key with a previously declared variable and
@@ -121,7 +121,7 @@ function fetchImage(animal, image) {
 }
 
 /*
-Created by:
+Created by: Kevin King Yabut
 Description:
 */
 function videoAnimals() {
@@ -154,7 +154,7 @@ function videoAnimals() {
 }
 
 /*
-Created by:
+Created by: Elijah Gigante
 Description:
 This is the function to create the animal cards.
 It will create the card where all the details about the animals will be displayed.
@@ -351,7 +351,7 @@ function createCard(animal, image, animalContainer) {
 }
 
 /*
-Created by:
+Created by: Elijah Gigante
 Description: 
 The search function of the website, upon searching select elements will be created labeled diet, habitat and group.
 The filter and sort buttons will also be created. 
