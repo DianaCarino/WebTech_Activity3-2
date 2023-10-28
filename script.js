@@ -2,7 +2,7 @@
 const animalsAPIURL = "https://api.api-ninjas.com/v1/animals?name=";
 const animalsAPIKey = "NCgsX/tZu9GD2YfAZGpM2A==6dfQiZXcvqGd8HcI";
 
-const youtubeAPIKey = "AIzaSyAdawYbu7IXXWoPuwp3ri28HzJ2I4su4JI";
+const youtubeAPIKey = "AIzaSyCSQZTyVjPC8R9-re-aSanmB5qUUFCkJaM";
 const youtubeAPIURL = "https://www.googleapis.com/youtube/v3/search";
 
 const videoPress = document.getElementById("video-press");
@@ -11,19 +11,29 @@ const videoShow = document.getElementById("video-show");
 const section = document.getElementById("results-section");
 
 /*
-Created by:
+Created by: Kevin king Yabut
 Description:
+
+The getYouTubeSearchURL function generates a YouTube search URL specifically tailored to search for a single video. It constructs the URL using the YouTube Data API, 
+with parameters including the API key, the National Geographic channel ID, the provided search query (encoded for URL compatibility), 
+and specific search parameters such as the type of content and the maximum number of results. The function returns the generated URL for the specified search query.
+
+
 */
 function getYouTubeSearchURL(animalString) {
-  const natGeoChannelId = "UCDPk9MG2RexnOMGTD-YnSnA";
-  return `${youtubeAPIURL}?key=${youtubeAPIKey}&channelId=${natGeoChannelId}&q=${encodeURIComponent(
-    animalString
-  )}&part=snippet&type=video&maxResults=1`;
+  const addSearch  = `${animalString} animal wildlife`;
+  return `${youtubeAPIURL}?key=${youtubeAPIKey}&q=${encodeURIComponent(addSearch)}&part=snippet&type=video&maxResults=1`;
 }
 
 /*
-Created by:
+Created by: Kevin king Yabut
 Description:
+
+The fetchVideo function initiates a search for a YouTube video related to the specified animalName by calling the getYouTubeSearchURL 
+function to construct a search URL. It then utilizes the fetch API to perform an asynchronous request to the generated URL. 
+The function handles the response by converting it to a JSON format and extracting the video ID of the first item in the search results. 
+If an error occurs during the process, it logs the error message to the console.
+
 */
 function fetchVideo(animalName) {
   const youtubeUrl = getYouTubeSearchURL(animalName);
@@ -33,6 +43,7 @@ function fetchVideo(animalName) {
     .then((data) => data.items[0].id.videoId)
     .catch((error) => {
       console.error("Error fetching YouTube video: ", error);
+      alert("Error fetching video");
     });
 }
 
@@ -45,27 +56,40 @@ function showVideoPopUp(videoId, targetCard) {
   popUp.className = "video-popup";
 
   const videoFrame = document.createElement("iframe");
-  videoFrame.setAttribute("src", `https://www.youtube.com/embed/${videoId}`);
   videoFrame.setAttribute("allowfullscreen", "");
   videoFrame.className = "video-frame";
+
+  videoFrame.setAttribute("src", `https://www.youtube.com/embed/${videoId}`);
 
   const closeButton = document.createElement("span");
   closeButton.className = "close";
   closeButton.textContent = "X";
   closeButton.addEventListener("click", function () {
     popUp.style.display = "none";
-    videoFrame.setAttribute("src", "");
+    const iframe = popUp.querySelector("iframe");
+    if (iframe) {
+      const iframeSrc = iframe.getAttribute("src");
+      iframe.setAttribute("src", iframeSrc);
+    }
   });
 
   popUp.appendChild(videoFrame);
   popUp.appendChild(closeButton);
 
   targetCard.appendChild(popUp);
+
+
+  videoFrame.addEventListener("error", function () {
+
+    videoFrame.setAttribute("src", "about:blank");
+  });
 }
 
+
 /*
-Created by:
+Created by: 
 Description:
+
 */
 function fetchAnimal(userInputValue) {
   return fetch(animalsAPIURL + userInputValue, {
@@ -108,13 +132,17 @@ function fetchImage(animal, image) {
 }
 
 /*
-Created by:
+Created by: Kevin king Yabut
+
 Description:
+
+This function adds click event listeners to the buttons, the event listeners control the visibility of video containers,
+the function also handles the fetching and displaying of videos associated with the specific animal name.
 */
 function videoAnimals() {
-  const videoPressButtons = document.querySelectorAll(".video-button"); //kunin mga meron na class video-button na nakadisplay pagkasearch
+  const videoPressButtons = document.querySelectorAll(".video-button"); 
   videoPressButtons.forEach(function (button) {
-    const hasEventListener = button.classList.contains("event-listener-added"); //eto putangina life saver sa stack overflow anti duplicate ng trigger
+    const hasEventListener = button.classList.contains("event-listener-added");
     if (!hasEventListener) {
       button.addEventListener("click", function () {
         const videoContainer = this.querySelector(".video-container");
