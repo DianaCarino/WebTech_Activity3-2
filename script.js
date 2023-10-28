@@ -64,8 +64,12 @@ function showVideoPopUp(videoId, targetCard) {
 }
 
 /*
-Created by:
-Description:
+Created by: 
+Description: This function will take in an argument (the input of the user) which will be used along
+with the animal API url variable to fetch the data from the API.
+Utilizing the get method and setting the headers of the API key with a previously declared variable and
+the content type to json, the response we get from the fetch function will then be stored
+in a json called the response.json.
 */
 function fetchAnimal(userInputValue) {
   return fetch(animalsAPIURL + userInputValue, {
